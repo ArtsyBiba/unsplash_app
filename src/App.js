@@ -32,10 +32,14 @@ export default function App() {
           setPage={setPage} 
         />
         {!loading && !pics.length && 
-          <Placeholder>
-            Search for photos and copy the url of image that you like 
-            to your clipboard by simply clicking on it!
-          </Placeholder>
+          <>
+            <Placeholder>
+              Search Unsplash photos for inspiration!
+            </Placeholder>
+            <Placeholder secondary>
+              You can copy the image url to your clipboard by simply clicking on it.
+            </Placeholder>
+          </>
         }
         {loading 
           ? <LoaderSpinner />
@@ -74,8 +78,10 @@ const Title = styled.h1`
 `;
 
 const Placeholder = styled.div`
+  font-weight: ${props => props.secondary ? '400' : '600'};
+  
   margin: auto;
-  margin-top: 4rem;
+  margin-top: 3rem;
   font-size: 1.2rem;  
   text-align: center;
   max-width: 80%;
